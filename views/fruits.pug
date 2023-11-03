@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  .container-fluid
+    .row
+      - let results = [{ name: 'Apple', color: 'Red', price: 1.99 },{ name: 'Banana', color: 'Yellow', price: 0.99 },{ name: 'Orange', color: 'Orange', price: 1.49 }]
+      each fruit,index in results
+        div(class="col-sm-2" onclick =`buy(${index})`)
+          h4= fruit.name
+          p Color: #{fruit.color}
+          p Price: $#{fruit.price.toFixed(2)}
+    a(href="/") Back to Index
+  script.
+    function buy(i)
+    {
+      alert(`You purchased Item ${i+1}`)
+    }

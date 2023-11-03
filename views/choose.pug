@@ -1,0 +1,11 @@
+
+block content
+  h1= title
+  - const image_names = ['image1.jpeg', 'image2.jpeg', 'image3.jpeg', 'image4.jpeg', 'image5.jpeg']
+
+
+  - for (let i = 0; i < 3; i++)
+    - const randomIndex = Math.floor(Math.random() * image_names.length)
+    - const imageName = image_names[randomIndex]
+
+    img(src=`/images/${imageName}`, alt=imageName, width="300", height="300")
