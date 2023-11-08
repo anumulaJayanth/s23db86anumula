@@ -4,7 +4,7 @@ block content
   h1= title
   .container-fluid
     .row
-      - let results = [{ name: 'Apple', color: 'Red', price: 1.99 },{ name: 'Banana', color: 'Yellow', price: 0.99 },{ name: 'Orange', color: 'Orange', price: 1.49 }]
+      - let results1
       each fruit,index in results
         div(class="col-sm-2" onclick =`buy(${index})`)
           h4= fruit.name

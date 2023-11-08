@@ -8,13 +8,13 @@ var fruit_controller = require('../controllers/fruits');
 router.get('/', api_controller.api);
 /// COSTUME ROUTES ///
 // POST request for creating a Costume. 
-router.post('/fruit', fruit_controller.fruit_create_post);
+router.post('/fruits', fruit_controller.fruit_create_post);
 // DELETE request to delete Costume.
-router.delete('/fruit/:id', fruit_controller.fruit_delete);
+router.delete('/fruits/:id', fruit_controller.fruit_delete);
 // PUT request to update Costume.
-router.put('/fruit/:id', fruit_controller.fruit_update_put);
+router.put('/fruits/:id', fruit_controller.fruit_update_put);
 // GET request for one Costume.
-router.get('/fruit/:id', fruit_controller.fruit_detail);
+router.get('/fruits/:id', fruit_controller.fruit_detail);
 // GET request for list of all Costume items.
 router.get('/fruits', fruit_controller.fruit_list);
 module.exports = router
