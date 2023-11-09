@@ -24,7 +24,7 @@ exports.fruit_create_post = async function(req, res) {
     // {"costume_type":"goat", "cost":12, "size":"large"}
     document.name = req.body.name;
     document.color = req.body.color;
-    document.prize = req.body.price;
+    document.price = req.body.price;
     try{
     let result = await document.save();
     res.send(result);

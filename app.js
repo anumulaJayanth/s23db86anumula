@@ -23,7 +23,11 @@ async function recreateDB(){
   // Delete everything
   await fruit.deleteMany();
   let instance1 = new fruit({name:"ghost", color:'Green', price:15});
-  instance1.save().then(doc=>{
+  let instance2 = new fruit({name:"gUAVA", color:'Green', price:15});
+  let instance3 = new fruit({name:"bANANA", color:'Green', price:15});
+  instance1.save();
+  instance2.save();
+  instance3.save().then(doc=>{
   console.log("First object saved")}
   ).catch(err=>{
   console.error(err)
