@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let id = toShow._id
+    - let name = toShow.name
+    - let color = toShow.color
+    - let price = toShow.price
+
+    div
+      div.row
+        div(class='costumeAttr mr-3') Fruit ID is:
+          div #{id}
+      div.row
+        div(class='costumeAttr mr-3') Fruit Name is:
+          div #{name}
+      div.row
+        div(class='costumeAttr mr-3') Fruit Color is:
+          div #{color}
+      div.row
+        div(class='costumeAttr mr-3') Fruit Cost is:
+          div #{price}

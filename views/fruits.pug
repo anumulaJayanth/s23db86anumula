@@ -2,17 +2,28 @@ extends layout
 
 block content
   h1= title
+  head
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+  
   .container-fluid
     .row
       - let results1
-      each fruit,index in results
-        div(class="col-sm-2" onclick =`buy(${index})`)
-          h4= fruit.name
-          p Color: #{fruit.color}
-          p Price: $#{fruit.price.toFixed(2)}
-    a(href="/") Back to Index
+      each fruit, index in results
+        .col-sm-4.mb-3
+          .card.clickable-card(onclick=`buy(${index})`, style=`background-color: ${fruit.color}; color: white;`)
+            .card-body
+              h4.card-title= fruit.name
+              p.card-text Color: #{fruit.color}
+              p.card-text Price: $#{fruit.price.toFixed(2)}
+              button.btn.btn-danger.btn-sm(delete-btn, onclick=`deleteFruit('${fruit._id}')`) Delete
+
   script.
-    function buy(i)
-    {
-      alert(`You purchased Item ${i+1}`)
+    function buy(i) {
+      //alert(`You purchased Item ${i+1}`);
+    }
+
+    function deleteFruit(id) {
+      // Add logic to delete the fruit with the given id
+      alert(`Deleting fruit with ID: ${id}`);
+      window.location.href='/fruits/delete/?id='+id;
     }
