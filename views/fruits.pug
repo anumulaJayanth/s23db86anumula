@@ -15,7 +15,7 @@ block content
               h4.card-title= fruit.name
               p.card-text Color: #{fruit.color}
               p.card-text Price: $#{fruit.price.toFixed(2)}
-              button.btn.btn-danger.btn-sm(delete-btn, onclick=`deleteFruit('${fruit._id}')`) Delete
+              button.btn.btn-danger.btn-sm(delete-btn, onclick=`deleteFruit('${fruit._id}')`) Update
 
   script.
     function buy(i) {
@@ -24,6 +24,5 @@ block content
 
     function deleteFruit(id) {
       // Add logic to delete the fruit with the given id
-      alert(`Deleting fruit with ID: ${id}`);
-      window.location.href='/fruits/delete/?id='+id;
+      window.location.href='/fruits/update/?id='+id;
     }
