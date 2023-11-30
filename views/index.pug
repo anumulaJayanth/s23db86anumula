@@ -1,16 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p Jayanth Anumula
-  button(type="button", onclick="goFaster()", class="btn btn-success") Press Me
-  div#faster Increase the speed
-  script.
-    var mph = 20;
-    var change = 1;
-    function goFaster() {
-      mph += change;
-      change += 1;
-      document.getElementById('faster').textContent = "MPH " + mph + " with change " + change;
-    }
-  a(href="/fruits") Fruits
+  if (!user)
+    a(href="/login") Login
+    br
+    a(href="/register") Register
+  if (user)
+    p You are currently logged in as #{user.username}
+    a(href="/fruits") Take me to fruits
+    br
+    a(href="/logout") Logout

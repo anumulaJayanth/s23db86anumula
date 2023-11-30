@@ -7,6 +7,9 @@ block content
   
   .container-fluid
     .row
+      .col-sm-12.mb-3 To create new Fruit : 
+        button.btn.btn-success.btn-sm(create-btn, onclick='createFruit()') Create
+
       - let results1
       each fruit, index in results
         .col-sm-4.mb-3
@@ -15,14 +18,29 @@ block content
               h4.card-title= fruit.name
               p.card-text Color: #{fruit.color}
               p.card-text Price: $#{fruit.price.toFixed(2)}
-              button.btn.btn-danger.btn-sm(delete-btn, onclick=`deleteFruit('${fruit._id}')`) Update
+              button.btn.btn-danger.btn-sm(delete-btn, onclick=`updateFruit('${fruit._id}')`) Update
+              | &nbsp;
+              button.btn.btn-danger.btn-sm(delete-btn, onclick=`detailFruit('${fruit._id}')`) Detail
+              | &nbsp; 
+              button.btn.btn-danger.btn-sm(delete-btn, onclick=`deleteFruit('${fruit._id}')`) Delete
 
   script.
+    function createFruit() {
+      window.location.href = '/fruits/create';
+    }
+
     function buy(i) {
-      //alert(`You purchased Item ${i+1}`);
+      // alert(`You purchased Item ${i+1}`);
+    }
+
+    function updateFruit(id) {
+      window.location.href='/fruits/update/?id='+id;
     }
 
     function deleteFruit(id) {
-      // Add logic to delete the fruit with the given id
-      window.location.href='/fruits/update/?id='+id;
+      window.location.href='/fruits/delete/?id='+id;
+    }
+
+    function detailFruit(id) {
+      window.location.href='/fruits/detail/?id='+id;
     }
